@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100dvh;
+  overflow: hidden;
+  font-family: 'Orbitron', sans-serif;
+}
+
+#game-wrapper {
+  position: relative;
+  width: 390px;
+  height: 100dvh;
+  max-height: 844px;
+  overflow: hidden;
+  background: #050510;
+  box-shadow:
+    0 0 40px #00f0ff44,
+    0 0 80px #00f0ff11,
+    inset 0 0 60px #0008;
+}
+
+#gameCanvas { display: block; width: 100%; height: 100%; }
+
+/* ── UI overlay ── */
+#ui-overlay {
+  position: absolute;
+  top: 14px; left: 0; right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 16px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+#score-display, #best-display {
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: #ffffff44;
+  background: rgba(0,240,255,0.06);
+  border: 1px solid rgba(0,240,255,0.2);
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+#score-display span, #best-display span {
+  color: #00f0ff;
+  font-weight: 700;
+  font-size: 13px;
+  margin-left: 6px;
+  text-shadow: 0 0 10px #00f0ff;
+}
+
+/* ── Screens ── */
+.screen {
+  position: absolute; inset: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 20;
+  background: rgba(5,5,20,0.88);
+  backdrop-filter: blur(8px);
+}
+.screen.active { display: flex; }
+
+.screen-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.logo {
+  font-size: 40px;
+  font-weight: 900;
+  line-height: 1.1;
+  color: #fff;
+  letter-spacing: 4px;
+  text-shadow:
+    0 0 20px #00f0ff,
+    0 0 60px #00f0ff66,
+    0 0 100px #00f0ff33;
+}
+.logo span {
+  color: #00f0ff;
+  font-size: 52px;
+  display: block;
+  text-shadow:
+    0 0 30px #00f0ff,
+    0 0 80px #00f0ffaa;
+}
+
+.hint {
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: #ffffff33;
+  text-transform: uppercase;
+  border: 1px solid #ffffff11;
+  padding: 6px 16px;
+  border-radius: 20px;
+}
+
+button {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  padding: 14px 44px;
+  border: 1px solid #00f0ff;
+  background: transparent;
+  color: #00f0ff;
+  cursor: pointer;
+  border-radius: 4px;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.2s;
+  text-shadow: 0 0 10px #00f0ff;
+  box-shadow: 0 0 20px #00f0ff33, inset 0 0 20px #00f0ff11;
+}
+button:hover {
+  background: #00f0ff18;
+  box-shadow: 0 0 30px #00f0ff66, inset 0 0 30px #00f0ff22;
+}
+button:active { transform: scale(0.97); }
+
+.go-title {
+  font-size: 36px;
+  font-weight: 900;
+  color: #ff3366;
+  letter-spacing: 6px;
+  text-shadow: 0 0 30px #ff3366, 0 0 60px #ff336688;
+}
+.go-score, .go-best {
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: #ffffff44;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 6px 20px;
+  border-radius: 20px;
+}
+.go-score span, .go-best span {
+  color: #00f0ff;
+  font-weight: 700;
+  text-shadow: 0 0 10px #00f0ff;
+}

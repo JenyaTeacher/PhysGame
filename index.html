@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>GravityRunner</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="game-wrapper">
+    <canvas id="gameCanvas"></canvas>
+
+    <div id="ui-overlay">
+      <div id="score-display">SCORE <span id="score">0</span></div>
+      <div id="best-display">BEST <span id="best">0</span></div>
+    </div>
+
+    <div id="start-screen" class="screen active">
+      <div class="screen-content">
+        <div class="logo">GRAVITY<br><span>RUNNER</span></div>
+        <p class="hint">ПРОБІЛ або ТАП — зміна гравітації</p>
+        <button id="btn-start">СТАРТ</button>
+      </div>
+    </div>
+
+    <div id="gameover-screen" class="screen">
+      <div class="screen-content">
+        <div class="go-title">GAME OVER</div>
+        <div class="go-score">Рахунок: <span id="final-score">0</span></div>
+        <div class="go-best">Рекорд: <span id="final-best">0</span></div>
+        <button id="btn-restart">ЗНОВУ</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
